@@ -258,11 +258,12 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}api/articles/{{slug}}",
+					"raw": "{{baseUrl}}/api/articles/{{slug}}",
 					"host": [
-						"{{baseUrl}}api"
+						"{{baseUrl}}"
 					],
 					"path": [
+						"api",
 						"articles",
 						"{{slug}}"
 					]
