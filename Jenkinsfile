@@ -1,6 +1,9 @@
 pipeline {
     agent any
 
+tools {
+	nodejs 'node18'
+}
     environment {
         DATABASE_URL = 'postgresql://postgres:postgres@host.docker.internal:5432/postgres'
     }
