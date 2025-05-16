@@ -28,7 +28,7 @@ pipeline {
 
     stage('Run Postman tests') {
       steps {
-        dir('project/tests') {
+        dir('tests') {
           sh 'newman run realworld.postman_collection.json'
         }
       }
