@@ -138,7 +138,7 @@ pipeline {
 ![Postman variables](docs/screenshots/postman-vars.png.png)
 
 ### 📂 Jenkinsfile preview
-![Jenkinsfile](docs/screenshots/jenkinsfile.png.png)
+![Jenkinsfile](docs/screenshots/jenkinsfile.png)
 
 ### 🟢 Prisma Client generation
 ![Prisma success](docs/screenshots/prisma-success.png.png)
