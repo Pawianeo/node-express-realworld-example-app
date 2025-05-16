@@ -1,74 +1,154 @@
-# ![Node/Express/Prisma Example App](project-logo.png)
+# Node Express Realworld Example App with Jenkins CI/CD
 
-[![Build Status](https://travis-ci.org/anishkny/node-express-realworld-example-app.svg?branch=master)](https://travis-ci.org/anishkny/node-express-realworld-example-app)
+![Logo](project-logo.png)
 
-> ### Example Node (Express + Prisma) codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld-example-apps) API spec.
+## 🧪 Project Overview
 
-<a href="https://thinkster.io/tutorials/node-json-api" target="_blank"><img width="454" src="https://raw.githubusercontent.com/gothinkster/realworld/master/media/learn-btn-hr.png" /></a>
+This project demonstrates a complete CI/CD pipeline for a Node.js API application using Jenkins, Docker, and Postman (Newman).
 
-## Getting Started
+It includes:
 
-### Prerequisites
+* A backend application built with **Express.js**,
+* API tests written and executed in **Postman**,
+* A **Jenkins pipeline** that:
 
-Run the following command to install dependencies:
+  * Installs dependencies
+  * Generates the Prisma client
+  * Runs automated API tests using Newman
 
-```shell
-npm install
+---
+
+## 🛠️ Tech Stack
+
+* **Node.js** / **Express.js** (backend API)
+* **Prisma ORM** (PostgreSQL connection)
+* **PostgreSQL** (Dockerized DB)
+* **Jenkins** (CI/CD server)
+* **Docker / Docker Compose** (containerized architecture)
+* **Postman / Newman** (automated API tests)
+
+---
+
+## 🐳 Project Structure (Dockerized)
+
+```
+📦node-express-realworld-example-app
+ ├── Dockerfile
+ ├── docker-compose.yml
+ ├── jenkins-dockerfile
+ ├── Jenkinsfile
+ ├── src/                  # Application source code
+ ├── tests/                # Postman collection (.json)
+ ├── .nx/                  # Nx cache
+ ├── dist/                 # Compiled build output
 ```
 
-### Environment variables
+---
 
-This project depends on some environment variables.
-If you are running this project locally, create a `.env` file at the root for these variables.
-Your host provider should included a feature to set them there directly to avoid exposing them.
+## ⚙️ How to Run Locally (Development)
 
-Here are the required ones:
+1. Clone the repo:
 
-```
-DATABASE_URL=
-JWT_SECRET=
-NODE_ENV=production
+```bash
+git clone https://github.com/Pawianeo/node-express-realworld-example-app.git
+cd node-express-realworld-example-app
 ```
 
-### Generate your Prisma client
+2. Start with Docker:
 
-Run the following command to generate the Prisma Client which will include types based on your database schema:
-
-```shell
-npx prisma generate
+```bash
+docker-compose up --build
 ```
 
-### Apply any SQL migration script
+3. Backend will be available at:
 
-Run the following command to create/update your database based on existing sql migration scripts:
-
-```shell
-npx prisma migrate deploy
+```
+http://localhost:3000/api
 ```
 
-### Run the project
+4. Verify articles endpoint:
 
-Run the following command to run the project:
-
-```shell
-npx nx serve api
+```
+GET http://localhost:3000/api/articles
 ```
 
-### Seed the database
+---
 
-The project includes a seed script to populate the database:
+## 🚀 Jenkins CI/CD Setup
 
-```shell
-npx prisma db seed
+1. Jenkins runs inside a Docker container, using the image defined in `jenkins-dockerfile`.
+2. Pipeline is defined in the `Jenkinsfile` and includes:
+
+```groovy
+pipeline {
+  agent any
+  tools {
+    nodejs 'node18'
+  }
+  environment {
+    DATABASE_URL = 'postgresql://postgres:postgres@host.docker.internal:5432/postgres'
+  }
+  stages {
+    stage('Install dependencies') {
+      steps {
+        dir('project') {
+          sh 'npm install || true'
+        }
+      }
+    }
+    stage('Generate Prisma Client') {
+      steps {
+        dir('project') {
+          sh 'npx prisma generate || true'
+        }
+      }
+    }
+    stage('Run Postman tests') {
+      steps {
+        dir('tests') {
+          sh 'newman run realworld.postman_collection.json'
+        }
+      }
+    }
+  }
+}
 ```
 
-## Deploy on a remote server
+---
 
-Run the following command to:
-- install dependencies
-- apply any new migration sql scripts
-- run the server
+## ✅ Sample Newman Test Results
 
-```shell
-npm ci && npx prisma migrate deploy && node dist/api/main.js
-```
+![Newman tests passed](docs/screenshots/newman-success.png)
+
+* All Postman tests executed successfully
+* Covered: registration, login, get current user, create + delete article
+* Dynamic data passed using collection variables
+
+---
+
+## 📷 Screenshots
+
+* Jenkins pipeline passing all stages
+* Docker containers view in Docker Desktop
+* Postman collection + variables
+* API results in browser
+
+(See `/docs/screenshots/` folder or GitHub issue attachments)
+
+---
+
+## 💡 Ideas for Future Expansion
+
+* Add test coverage reports to Jenkins
+* Integrate GitHub Webhooks for push builds
+* Deploy to staging with Docker Swarm or Kubernetes
+* Add email/Slack notifications on failure
+
+---
+
+## 📎 Credits
+
+Fork based on [gothinkster/realworld](https://github.com/gothinkster/realworld) API.
+
+Project customized, dockerized and integrated with CI by **Pawianeo** 🛠️
+
