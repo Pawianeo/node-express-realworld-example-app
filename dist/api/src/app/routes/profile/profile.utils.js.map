@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../src/app/routes/profile/profile.utils.ts"],
+  "sourcesContent": ["import { User } from '../auth/user.model';\r\nimport { Profile } from './profile.model';\r\n\r\nconst profileMapper = (user: any, id: number | undefined): Profile => ({\r\n  username: user.username,\r\n  bio: user.bio,\r\n  image: user.image,\r\n  following: id\r\n    ? user?.followedBy.some((followingUser: Partial<User>) => followingUser.id === id)\r\n    : false,\r\n});\r\n\r\nexport default profileMapper;\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAGA,MAAM,gBAAgB,CAAC,MAAW,QAAqC;AAAA,EACrE,UAAU,KAAK;AAAA,EACf,KAAK,KAAK;AAAA,EACV,OAAO,KAAK;AAAA,EACZ,WAAW,KACP,MAAM,WAAW,KAAK,CAAC,kBAAiC,cAAc,OAAO,EAAE,IAC/E;AACN;AAEA,IAAO,wBAAQ;",
+  "names": []
+}

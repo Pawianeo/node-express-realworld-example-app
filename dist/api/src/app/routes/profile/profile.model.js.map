@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../src/app/routes/profile/profile.model.ts"],
+  "sourcesContent": ["export interface Profile {\r\n  username: string;\r\n  bio: string;\r\n  image: string;\r\n  following: boolean;\r\n}\r\n"],
+  "mappings": ";;;;;;;;;;;;;AAAA;AAAA;",
+  "names": []
+}

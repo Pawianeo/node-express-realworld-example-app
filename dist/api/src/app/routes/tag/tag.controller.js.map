@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../src/app/routes/tag/tag.controller.ts"],
+  "sourcesContent": ["import { NextFunction, Request, Response, Router } from 'express';\r\nimport auth from '../auth/auth';\r\nimport getTags from './tag.service';\r\n\r\nconst router = Router();\r\n\r\n/**\r\n * Get top 10 popular tags\r\n * @auth optional\r\n * @route {GET} /api/tags\r\n * @returns tags list of tag names\r\n */\r\nrouter.get('/tags', auth.optional, async (req: Request, res: Response, next: NextFunction) => {\r\n  try {\r\n    const tags = await getTags(req.auth?.user?.id);\r\n    res.json({ tags });\r\n  } catch (error) {\r\n    next(error);\r\n  }\r\n});\r\n\r\nexport default router;\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,qBAAwD;AACxD,kBAAiB;AACjB,iBAAoB;AAEpB,MAAM,aAAS,uBAAO;AAQtB,OAAO,IAAI,SAAS,YAAAA,QAAK,UAAU,OAAO,KAAc,KAAe,SAAuB;AAC5F,MAAI;AACF,UAAM,OAAO,UAAM,WAAAC,SAAQ,IAAI,MAAM,MAAM,EAAE;AAC7C,QAAI,KAAK,EAAE,KAAK,CAAC;AAAA,EACnB,SAAS,OAAO;AACd,SAAK,KAAK;AAAA,EACZ;AACF,CAAC;AAED,IAAO,yBAAQ;",
+  "names": ["auth", "getTags"]
+}

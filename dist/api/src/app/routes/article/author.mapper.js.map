@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../src/app/routes/article/author.mapper.ts"],
+  "sourcesContent": ["import { User } from '../auth/user.model';\r\n\r\nconst authorMapper = (author: any, id?: number) => ({\r\n  username: author.username,\r\n  bio: author.bio,\r\n  image: author.image,\r\n  following: id\r\n    ? author?.followedBy.some((followingUser: Partial<User>) => followingUser.id === id)\r\n    : false,\r\n});\r\n\r\nexport default authorMapper;\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAEA,MAAM,eAAe,CAAC,QAAa,QAAiB;AAAA,EAClD,UAAU,OAAO;AAAA,EACjB,KAAK,OAAO;AAAA,EACZ,OAAO,OAAO;AAAA,EACd,WAAW,KACP,QAAQ,WAAW,KAAK,CAAC,kBAAiC,cAAc,OAAO,EAAE,IACjF;AACN;AAEA,IAAO,wBAAQ;",
+  "names": []
+}

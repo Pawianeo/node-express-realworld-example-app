@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../src/app/routes/article/comment.model.ts"],
+  "sourcesContent": ["import { Article } from './article.model';\r\n\r\nexport interface Comment {\r\n  id: number;\r\n  createdAt: Date;\r\n  updatedAt: Date;\r\n  body: string;\r\n  article?: Article;\r\n}\r\n"],
+  "mappings": ";;;;;;;;;;;;;AAAA;AAAA;",
+  "names": []
+}

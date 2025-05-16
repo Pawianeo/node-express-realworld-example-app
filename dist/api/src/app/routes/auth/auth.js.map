@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../src/app/routes/auth/auth.ts"],
+  "sourcesContent": ["import { expressjwt as jwt } from 'express-jwt';\r\nimport * as express from 'express';\r\n\r\nconst getTokenFromHeaders = (req: express.Request): string | null => {\r\n  if (\r\n    (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Token') ||\r\n    (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer')\r\n  ) {\r\n    return req.headers.authorization.split(' ')[1];\r\n  }\r\n  return null;\r\n};\r\n\r\nconst auth = {\r\n  required: jwt({\r\n    secret: process.env.JWT_SECRET || 'superSecret',\r\n    getToken: getTokenFromHeaders,\r\n    algorithms: ['HS256'],\r\n  }),\r\n  optional: jwt({\r\n    secret: process.env.JWT_SECRET || 'superSecret',\r\n    credentialsRequired: false,\r\n    getToken: getTokenFromHeaders,\r\n    algorithms: ['HS256'],\r\n  }),\r\n};\r\n\r\nexport default auth;\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,yBAAkC;AAGlC,MAAM,sBAAsB,CAAC,QAAwC;AACnE,MACG,IAAI,QAAQ,iBAAiB,IAAI,QAAQ,cAAc,MAAM,GAAG,EAAE,CAAC,MAAM,WACzE,IAAI,QAAQ,iBAAiB,IAAI,QAAQ,cAAc,MAAM,GAAG,EAAE,CAAC,MAAM,UAC1E;AACA,WAAO,IAAI,QAAQ,cAAc,MAAM,GAAG,EAAE,CAAC;AAAA,EAC/C;AACA,SAAO;AACT;AAEA,MAAM,OAAO;AAAA,EACX,cAAU,mBAAAA,YAAI;AAAA,IACZ,QAAQ,QAAQ,IAAI,cAAc;AAAA,IAClC,UAAU;AAAA,IACV,YAAY,CAAC,OAAO;AAAA,EACtB,CAAC;AAAA,EACD,cAAU,mBAAAA,YAAI;AAAA,IACZ,QAAQ,QAAQ,IAAI,cAAc;AAAA,IAClC,qBAAqB;AAAA,IACrB,UAAU;AAAA,IACV,YAAY,CAAC,OAAO;AAAA,EACtB,CAAC;AACH;AAEA,IAAO,eAAQ;",
+  "names": ["jwt"]
+}

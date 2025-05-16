@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../src/app/routes/auth/token.utils.ts"],
+  "sourcesContent": ["import * as jwt from 'jsonwebtoken';\r\n\r\nconst generateToken = (id: number): string =>\r\n  jwt.sign({ user: { id } }, process.env.JWT_SECRET || 'superSecret', {\r\n    expiresIn: '60d',\r\n  });\r\n\r\nexport default generateToken;\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,UAAqB;AAErB,MAAM,gBAAgB,CAAC,OACrB,IAAI,KAAK,EAAE,MAAM,EAAE,GAAG,EAAE,GAAG,QAAQ,IAAI,cAAc,eAAe;AAAA,EAClE,WAAW;AACb,CAAC;AAEH,IAAO,sBAAQ;",
+  "names": []
+}

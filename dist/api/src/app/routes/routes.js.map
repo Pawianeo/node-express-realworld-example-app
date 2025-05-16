@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../src/app/routes/routes.ts"],
+  "sourcesContent": ["import { Router } from 'express';\r\nimport tagsController from './tag/tag.controller';\r\nimport articlesController from './article/article.controller';\r\nimport authController from './auth/auth.controller';\r\nimport profileController from './profile/profile.controller';\r\n\r\nconst api = Router()\r\n  .use(tagsController)\r\n  .use(articlesController)\r\n  .use(profileController)\r\n  .use(authController);\r\n\r\nexport default Router().use('/api', api);\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,qBAAuB;AACvB,iBAA2B;AAC3B,qBAA+B;AAC/B,kBAA2B;AAC3B,qBAA8B;AAE9B,MAAM,UAAM,uBAAO,EAChB,IAAI,WAAAA,OAAc,EAClB,IAAI,eAAAC,OAAkB,EACtB,IAAI,eAAAC,OAAiB,EACrB,IAAI,YAAAC,OAAc;AAErB,IAAO,qBAAQ,uBAAO,EAAE,IAAI,QAAQ,GAAG;",
+  "names": ["tagsController", "articlesController", "profileController", "authController"]
+}

@@ -1,0 +1,20 @@
+[NX Daemon Server] - 2025-05-16T08:37:39.963Z - Started listening on: /tmp/ea0135bca5e3bd815f5b/d.sock
+[NX Daemon Server] - 2025-05-16T08:37:39.984Z - [WATCHER]: Subscribed to changes within: /project (native)
+[NX Daemon Server] - 2025-05-16T08:37:39.986Z - Established a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-05-16T08:37:39.988Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-05-16T08:37:39.996Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2025-05-16T08:37:40.000Z - [REQUEST]: Updated workspace context based on watched changes, recomputing project graph...
+[NX Daemon Server] - 2025-05-16T08:37:40.000Z - [REQUEST]: 
+[NX Daemon Server] - 2025-05-16T08:37:40.001Z - [REQUEST]: 
+[NX Daemon Server] - 2025-05-16T08:37:40.799Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2025-05-16T08:37:40.800Z - Time taken for 'total for creating and serializing project graph' 802.9380919999676ms
+[NX Daemon Server] - 2025-05-16T08:37:40.801Z - Closed a connection. Number of open connections: 1
+[NX Daemon Server] - 2025-05-16T08:37:40.801Z - Done responding to the client project-graph
+[NX Daemon Server] - 2025-05-16T08:37:40.802Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 804. Response time: 3.
+[NX Daemon Server] - 2025-05-16T08:37:40.804Z - Established a connection. Number of open connections: 2
+[NX Daemon Server] - 2025-05-16T08:37:41.449Z - [REQUEST]: Client Request for Project Graph Received
+[NX Daemon Server] - 2025-05-16T08:37:41.450Z - [REQUEST]: Responding to the client. project-graph
+[NX Daemon Server] - 2025-05-16T08:37:41.452Z - Time taken for 'total for creating and serializing project graph' 0.9913129999767989ms
+[NX Daemon Server] - 2025-05-16T08:37:41.453Z - Done responding to the client project-graph
+[NX Daemon Server] - 2025-05-16T08:37:41.453Z - Handled REQUEST_PROJECT_GRAPH. Handling time: 1. Response time: 3.
+[NX Daemon Server] - 2025-05-16T08:37:41.457Z - Established a connection. Number of open connections: 3

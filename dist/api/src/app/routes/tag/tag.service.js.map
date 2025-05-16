@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../src/app/routes/tag/tag.service.ts"],
+  "sourcesContent": ["import prisma from '../../../prisma/prisma-client';\r\nimport { Tag } from './tag.model';\r\n\r\nconst getTags = async (id?: number): Promise<string[]> => {\r\n  const queries = [];\r\n  queries.push({ demo: true });\r\n\r\n  if (id) {\r\n    queries.push({\r\n      id: {\r\n        equals: id,\r\n      },\r\n    });\r\n  }\r\n\r\n  const tags = await prisma.tag.findMany({\r\n    where: {\r\n      articles: {\r\n        some: {\r\n          author: {\r\n            OR: queries,\r\n          },\r\n        },\r\n      },\r\n    },\r\n    select: {\r\n      name: true,\r\n    },\r\n    orderBy: {\r\n      articles: {\r\n        _count: 'desc',\r\n      },\r\n    },\r\n    take: 10,\r\n  });\r\n\r\n  return tags.map((tag: Tag) => tag.name);\r\n};\r\n\r\nexport default getTags;\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,2BAAmB;AAGnB,MAAM,UAAU,OAAO,OAAmC;AACxD,QAAM,UAAU,CAAC;AACjB,UAAQ,KAAK,EAAE,MAAM,KAAK,CAAC;AAE3B,MAAI,IAAI;AACN,YAAQ,KAAK;AAAA,MACX,IAAI;AAAA,QACF,QAAQ;AAAA,MACV;AAAA,IACF,CAAC;AAAA,EACH;AAEA,QAAM,OAAO,MAAM,qBAAAA,QAAO,IAAI,SAAS;AAAA,IACrC,OAAO;AAAA,MACL,UAAU;AAAA,QACR,MAAM;AAAA,UACJ,QAAQ;AAAA,YACN,IAAI;AAAA,UACN;AAAA,QACF;AAAA,MACF;AAAA,IACF;AAAA,IACA,QAAQ;AAAA,MACN,MAAM;AAAA,IACR;AAAA,IACA,SAAS;AAAA,MACP,UAAU;AAAA,QACR,QAAQ;AAAA,MACV;AAAA,IACF;AAAA,IACA,MAAM;AAAA,EACR,CAAC;AAED,SAAO,KAAK,IAAI,CAAC,QAAa,IAAI,IAAI;AACxC;AAEA,IAAO,sBAAQ;",
+  "names": ["prisma"]
+}

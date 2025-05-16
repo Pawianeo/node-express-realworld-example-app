@@ -1,0 +1,375 @@
+{
+	"info": {
+		"_postman_id": "acf6ed4a-e812-4455-8ea0-01e16955c1ce",
+		"name": "Realwolrd Api Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34018810",
+		"_collection_link": "https://ggigaczad.postman.co/workspace/Docker~4f86b666-2796-44dd-8ea5-58b0e135c66e/collection/34018810-acf6ed4a-e812-4455-8ea0-01e16955c1ce?action=share&source=collection_link&creator=34018810"
+	},
+	"item": [
+		{
+			"name": "Rejestracja",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status is 200 or 201\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Token exists\", function () {\r",
+							"    var json = pm.response.json();\r",
+							"    pm.expect(json.user.token).to.not.be.empty;\r",
+							"});\r",
+							"\r",
+							"// zapisanie tokena jako zmiennej\r",
+							"pm.environment.set(\"token\", pm.response.json().user.token);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"// losowe ID\r",
+							"const id = Math.floor(Math.random() * 100000);\r",
+							"\r",
+							"// ustaw zmienne środowiskowe\r",
+							"pm.collectionVariables.set(\"random_username\", `karol_user_${id}`);\r",
+							"pm.collectionVariables.set(\"random_email\", `karol${id}@example.com`);\r",
+							"pm.collectionVariables.set(\"random_password\", `Pass${id}!`);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"username\": \"{{random_username}}\",\r\n    \"email\": \"{{random_email}}\",\r\n    \"password\": \"{{random_password}}\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"let json = pm.response.json();\r",
+							"\r",
+							"if (json.user && json.user.token) {\r",
+							"    pm.collectionVariables.set(\"token\", json.user.token);\r",
+							"    pm.test(\"Token exists (login)\", () => {\r",
+							"        pm.expect(json.user.token).to.not.be.empty;\r",
+							"    });\r",
+							"} else {\r",
+							"    pm.test(\"Login failed\", () => {\r",
+							"        pm.expect.fail(\"Token not returned – login error\");\r",
+							"    });\r",
+							"}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"user\": {\r\n    \"email\": \"{{random_email}}\",\r\n    \"password\": \"{{random_password}}\"\r\n  }\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test GET /api/user (czy jesteśmy zalogowani)",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Zalogowany użytkownik OK\", () => {\r",
+							"    const json = pm.response.json();\r",
+							"    pm.expect(json.user.email).to.eql(pm.collectionVariables.get(\"random_email\"));\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"user"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test tworzenia artykułu",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const json = pm.response.json();\r",
+							"pm.test(\"Artykuł utworzony\", () => {\r",
+							"    pm.expect(json.article.title).to.include(pm.collectionVariables.get(\"random_username\"));\r",
+							"});\r",
+							"pm.collectionVariables.set(\"slug\", json.article.slug);"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"article\": {\r\n    \"title\": \"Test artykułu {{random_username}}\",\r\n    \"description\": \"Opis testowy\",\r\n    \"body\": \"To jest testowy body tekst\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/articles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"articles"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": null,
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test GET /api/articles/{{slug}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Artykuł pobrany\", () => {\r",
+							"    const json = pm.response.json();\r",
+							"    pm.expect(json.article.slug).to.eql(pm.collectionVariables.get(\"slug\"));\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/articles/{{slug}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"articles",
+						"{{slug}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test DELETE /api/articles/{{slug}}",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Artykuł usunięty\", () => {\r",
+							"    pm.response.to.have.status(204);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Token {{token}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/articles/{{slug}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"articles",
+						"{{slug}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "slug",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "random_username",
+			"value": ""
+		},
+		{
+			"key": "random_email",
+			"value": ""
+		},
+		{
+			"key": "random_password",
+			"value": ""
+		}
+	]
+}

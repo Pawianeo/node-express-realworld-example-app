@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../src/prisma/prisma-client.ts"],
+  "sourcesContent": ["import { PrismaClient } from '@prisma/client';\r\n\r\ndeclare global {\r\n  namespace NodeJS {\r\n    interface Global {}\r\n  }\r\n}\r\n\r\n// add prisma to the NodeJS global type\r\ninterface CustomNodeJsGlobal extends NodeJS.Global {\r\n  prisma: PrismaClient;\r\n}\r\n\r\n// Prevent multiple instances of Prisma Client in development\r\ndeclare const global: CustomNodeJsGlobal;\r\n\r\nconst prisma = global.prisma || new PrismaClient();\r\n\r\nif (process.env.NODE_ENV === 'development') {\r\n  global.prisma = prisma;\r\n}\r\n\r\nexport default prisma;\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,oBAA6B;AAgB7B,MAAM,SAAS,OAAO,UAAU,IAAI,2BAAa;AAEjD,IAAI,QAAQ,IAAI,aAAa,eAAe;AAC1C,SAAO,SAAS;AAClB;AAEA,IAAO,wBAAQ;",
+  "names": []
+}

@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../src/app/routes/article/article.mapper.ts"],
+  "sourcesContent": ["import authorMapper from './author.mapper';\r\n\r\nconst articleMapper = (article: any, id?: number) => ({\r\n  slug: article.slug,\r\n  title: article.title,\r\n  description: article.description,\r\n  body: article.body,\r\n  tagList: article.tagList.map((tag: any) => tag.name),\r\n  createdAt: article.createdAt,\r\n  updatedAt: article.updatedAt,\r\n  favorited: article.favoritedBy.some((item: any) => item.id === id),\r\n  favoritesCount: article.favoritedBy.length,\r\n  author: authorMapper(article.author, id),\r\n});\r\n\r\nexport default articleMapper;\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,oBAAyB;AAEzB,MAAM,gBAAgB,CAAC,SAAc,QAAiB;AAAA,EACpD,MAAM,QAAQ;AAAA,EACd,OAAO,QAAQ;AAAA,EACf,aAAa,QAAQ;AAAA,EACrB,MAAM,QAAQ;AAAA,EACd,SAAS,QAAQ,QAAQ,IAAI,CAAC,QAAa,IAAI,IAAI;AAAA,EACnD,WAAW,QAAQ;AAAA,EACnB,WAAW,QAAQ;AAAA,EACnB,WAAW,QAAQ,YAAY,KAAK,CAAC,SAAc,KAAK,OAAO,EAAE;AAAA,EACjE,gBAAgB,QAAQ,YAAY;AAAA,EACpC,YAAQ,cAAAA,SAAa,QAAQ,QAAQ,EAAE;AACzC;AAEA,IAAO,yBAAQ;",
+  "names": ["authorMapper"]
+}

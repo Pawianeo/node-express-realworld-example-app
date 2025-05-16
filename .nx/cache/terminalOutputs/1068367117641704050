@@ -1,0 +1,6 @@
+[ watch ] build succeeded, watching for changes...
+Debugger listening on ws://localhost:9229/9a1a2d8a-103a-4139-87e3-3242f25756cb
+Debugger listening on ws://localhost:9229/9a1a2d8a-103a-4139-87e3-3242f25756cb
+For help, see: https://nodejs.org/en/docs/inspector
+
+Watch error: Daemon closed the connection

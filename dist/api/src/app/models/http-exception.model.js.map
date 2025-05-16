@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../src/app/models/http-exception.model.ts"],
+  "sourcesContent": ["class HttpException extends Error {\r\n  errorCode: number;\r\n  constructor(\r\n    errorCode: number,\r\n    public readonly message: string | any,\r\n  ) {\r\n    super(message);\r\n    this.errorCode = errorCode;\r\n  }\r\n}\r\n\r\nexport default HttpException;\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA,MAAM,sBAAsB,MAAM;AAAA,EAEhC,YACE,WACgB,SAChB;AACA,UAAM,OAAO;AAFG;AAGhB,SAAK,YAAY;AAAA,EACnB;AACF;AAEA,IAAO,+BAAQ;",
+  "names": []
+}

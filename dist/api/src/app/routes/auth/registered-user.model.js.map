@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../src/app/routes/auth/registered-user.model.ts"],
+  "sourcesContent": ["export interface RegisteredUser {\r\n  id: number;\r\n  email: string;\r\n  username: string;\r\n  bio: string | null;\r\n  image: string | null;\r\n  token: string;\r\n}\r\n"],
+  "mappings": ";;;;;;;;;;;;;AAAA;AAAA;",
+  "names": []
+}

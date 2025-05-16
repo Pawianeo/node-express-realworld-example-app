@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../../../../src/app/routes/auth/user.model.ts"],
+  "sourcesContent": ["import { Article } from '../article/article.model';\r\nimport { Comment } from '../article/comment.model';\r\n\r\nexport interface User {\r\n  id: number;\r\n  username: string;\r\n  email: string;\r\n  password: string;\r\n  bio: string | null;\r\n  image: any | null;\r\n  articles: Article[];\r\n  favorites: Article[];\r\n  followedBy: User[];\r\n  following: User[];\r\n  comments: Comment[];\r\n  demo: boolean;\r\n}\r\n"],
+  "mappings": ";;;;;;;;;;;;;AAAA;AAAA;",
+  "names": []
+}
