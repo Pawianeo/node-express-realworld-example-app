@@ -129,19 +129,19 @@ pipeline {
 ## 📷 Screenshots
 
 ### ✅ Jenkins pipeline (Green build)
-![Jenkins pipeline](docs/screenshots/jenkins-pipeline.png)
+![Jenkins pipeline](docs/screenshots/jenkins-pipeline.png.png)
 
 ### 🐳 Docker containers running
-![Docker containers](docs/screenshots/docker-containers.png)
+![Docker containers](docs/screenshots/docker-containers.png.png)
 
 ### 🧪 Postman test variables
-![Postman variables](docs/screenshots/postman-vars.png)
+![Postman variables](docs/screenshots/postman-vars.png.png)
 
 ### 📂 Jenkinsfile preview
-![Jenkinsfile](docs/screenshots/jenkinsfile.png)
+![Jenkinsfile](docs/screenshots/jenkinsfile.png.png)
 
 ### 🟢 Prisma Client generation
-![Prisma success](docs/screenshots/prisma-success.png)
+![Prisma success](docs/screenshots/prisma-success.png.png)
 
 (See `/docs/screenshots/` folder or GitHub issue attachments)
 
