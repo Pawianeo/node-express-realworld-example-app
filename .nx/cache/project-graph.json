@@ -6819,42 +6819,12 @@
     "api": [
       {
         "source": "api",
-        "target": "npm:@nx/jest",
-        "type": "static"
-      },
-      {
-        "source": "api",
-        "target": "npm:@ngneat/falso",
-        "type": "static"
-      },
-      {
-        "source": "api",
-        "target": "npm:@prisma/client",
-        "type": "static"
-      },
-      {
-        "source": "api",
-        "target": "npm:axios",
-        "type": "static"
-      },
-      {
-        "source": "api",
-        "target": "npm:bcryptjs",
-        "type": "static"
-      },
-      {
-        "source": "api",
-        "target": "npm:body-parser",
-        "type": "static"
-      },
-      {
-        "source": "api",
-        "target": "npm:cors",
-        "type": "static"
-      },
-      {
-        "source": "api",
         "target": "npm:express",
+        "type": "static"
+      },
+      {
+        "source": "api",
+        "target": "npm:slugify",
         "type": "static"
       },
       {
@@ -6864,12 +6834,42 @@
       },
       {
         "source": "api",
+        "target": "npm:bcryptjs",
+        "type": "static"
+      },
+      {
+        "source": "api",
         "target": "npm:jsonwebtoken",
         "type": "static"
       },
       {
         "source": "api",
-        "target": "npm:slugify",
+        "target": "npm:cors",
+        "type": "static"
+      },
+      {
+        "source": "api",
+        "target": "npm:body-parser",
+        "type": "static"
+      },
+      {
+        "source": "api",
+        "target": "npm:@prisma/client",
+        "type": "static"
+      },
+      {
+        "source": "api",
+        "target": "npm:@ngneat/falso",
+        "type": "static"
+      },
+      {
+        "source": "api",
+        "target": "npm:@nx/jest",
+        "type": "static"
+      },
+      {
+        "source": "api",
+        "target": "npm:axios",
         "type": "static"
       },
       {

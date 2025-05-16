@@ -45,52 +45,7 @@
   "pathMappings": {},
   "nxJsonPlugins": [],
   "fileMap": {
-    "nonProjectFiles": [],
     "projectFileMap": {
-      "e2e": [
-        {
-          "file": "e2e/.eslintrc.json",
-          "hash": "2666771139683478850"
-        },
-        {
-          "file": "e2e/jest.config.ts",
-          "hash": "1456555062157936470"
-        },
-        {
-          "file": "e2e/project.json",
-          "hash": "172393831053734807"
-        },
-        {
-          "file": "e2e/src/server/server.spec.ts",
-          "hash": "3026045886657059088",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "e2e/src/support/global-setup.ts",
-          "hash": "18221119270488052961"
-        },
-        {
-          "file": "e2e/src/support/global-teardown.ts",
-          "hash": "17927034305001160425"
-        },
-        {
-          "file": "e2e/src/support/test-setup.ts",
-          "hash": "4165311015569872896",
-          "deps": [
-            "npm:axios"
-          ]
-        },
-        {
-          "file": "e2e/tsconfig.json",
-          "hash": "3552952790334018146"
-        },
-        {
-          "file": "e2e/tsconfig.spec.json",
-          "hash": "9794114284475474533"
-        }
-      ],
       "api": [
         {
           "file": "-p",
@@ -114,7 +69,7 @@
         },
         {
           "file": ".gitignore",
-          "hash": "482260170198261808"
+          "hash": "715586091238781753"
         },
         {
           "file": ".prettierignore",
@@ -130,11 +85,291 @@
         },
         {
           "file": "Dockerfile",
-          "hash": "2584573825673622116"
+          "hash": "16718686615295765108"
+        },
+        {
+          "file": "Jenkinsfile",
+          "hash": "2816672548294294663"
         },
         {
           "file": "README.md",
           "hash": "7202991028097114903"
+        },
+        {
+          "file": "dist/api/main.js",
+          "hash": "18159677347048294823",
+          "deps": [
+            "npm:module",
+            "npm:path",
+            "npm:fs"
+          ]
+        },
+        {
+          "file": "dist/api/main.js.map",
+          "hash": "11826500222216109697"
+        },
+        {
+          "file": "dist/api/package-lock.json",
+          "hash": "8286652916563120398"
+        },
+        {
+          "file": "dist/api/package.json",
+          "hash": "11187361057214949740"
+        },
+        {
+          "file": "dist/api/src/app/models/http-exception.model.js",
+          "hash": "17760554178929055682"
+        },
+        {
+          "file": "dist/api/src/app/models/http-exception.model.js.map",
+          "hash": "8807293000856785204"
+        },
+        {
+          "file": "dist/api/src/app/routes/article/article.controller.js",
+          "hash": "1981716969942687340",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "dist/api/src/app/routes/article/article.controller.js.map",
+          "hash": "12826768374971222809"
+        },
+        {
+          "file": "dist/api/src/app/routes/article/article.mapper.js",
+          "hash": "18169315090544870450"
+        },
+        {
+          "file": "dist/api/src/app/routes/article/article.mapper.js.map",
+          "hash": "5869448506351556602"
+        },
+        {
+          "file": "dist/api/src/app/routes/article/article.model.js",
+          "hash": "7042450757286763565"
+        },
+        {
+          "file": "dist/api/src/app/routes/article/article.model.js.map",
+          "hash": "13384106317042462582"
+        },
+        {
+          "file": "dist/api/src/app/routes/article/article.service.js",
+          "hash": "13945411272272653188",
+          "deps": [
+            "npm:slugify"
+          ]
+        },
+        {
+          "file": "dist/api/src/app/routes/article/article.service.js.map",
+          "hash": "244932770338778042"
+        },
+        {
+          "file": "dist/api/src/app/routes/article/author.mapper.js",
+          "hash": "16776303981327899207"
+        },
+        {
+          "file": "dist/api/src/app/routes/article/author.mapper.js.map",
+          "hash": "14118250163243402587"
+        },
+        {
+          "file": "dist/api/src/app/routes/article/comment.model.js",
+          "hash": "1938063803396050789"
+        },
+        {
+          "file": "dist/api/src/app/routes/article/comment.model.js.map",
+          "hash": "6280914512109775559"
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/auth.controller.js",
+          "hash": "1164646329773755693",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/auth.controller.js.map",
+          "hash": "2372562108595243301"
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/auth.js",
+          "hash": "8537732330005085311",
+          "deps": [
+            "npm:express-jwt"
+          ]
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/auth.js.map",
+          "hash": "8006707673616997439"
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/auth.service.js",
+          "hash": "3116150197294439537",
+          "deps": [
+            "npm:bcryptjs"
+          ]
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/auth.service.js.map",
+          "hash": "10466910797913306471"
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/register-input.model.js",
+          "hash": "12513305360243310472"
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/register-input.model.js.map",
+          "hash": "3477472672214363172"
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/registered-user.model.js",
+          "hash": "18075255041857264002"
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/registered-user.model.js.map",
+          "hash": "7376554116805926880"
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/token.utils.js",
+          "hash": "6130596907717722426",
+          "deps": [
+            "npm:jsonwebtoken"
+          ]
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/token.utils.js.map",
+          "hash": "11009569470787529050"
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/user-request.d.js",
+          "hash": "10685870869023157861"
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/user-request.d.js.map",
+          "hash": "9947606979680686569"
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/user.model.js",
+          "hash": "4890597013612844780"
+        },
+        {
+          "file": "dist/api/src/app/routes/auth/user.model.js.map",
+          "hash": "928741290083911727"
+        },
+        {
+          "file": "dist/api/src/app/routes/profile/profile.controller.js",
+          "hash": "15043492702092814396",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "dist/api/src/app/routes/profile/profile.controller.js.map",
+          "hash": "17737538463018645318"
+        },
+        {
+          "file": "dist/api/src/app/routes/profile/profile.model.js",
+          "hash": "4131065839795536467"
+        },
+        {
+          "file": "dist/api/src/app/routes/profile/profile.model.js.map",
+          "hash": "13741268302098483219"
+        },
+        {
+          "file": "dist/api/src/app/routes/profile/profile.service.js",
+          "hash": "2986381972753997628"
+        },
+        {
+          "file": "dist/api/src/app/routes/profile/profile.service.js.map",
+          "hash": "619017129583841071"
+        },
+        {
+          "file": "dist/api/src/app/routes/profile/profile.utils.js",
+          "hash": "12685180827639176034"
+        },
+        {
+          "file": "dist/api/src/app/routes/profile/profile.utils.js.map",
+          "hash": "13821836198708348560"
+        },
+        {
+          "file": "dist/api/src/app/routes/routes.js",
+          "hash": "16782373401632224567",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "dist/api/src/app/routes/routes.js.map",
+          "hash": "13168399194797485050"
+        },
+        {
+          "file": "dist/api/src/app/routes/tag/tag.controller.js",
+          "hash": "10765720104488497571",
+          "deps": [
+            "npm:express"
+          ]
+        },
+        {
+          "file": "dist/api/src/app/routes/tag/tag.controller.js.map",
+          "hash": "14242209344481903851"
+        },
+        {
+          "file": "dist/api/src/app/routes/tag/tag.model.js",
+          "hash": "11806342592237555411"
+        },
+        {
+          "file": "dist/api/src/app/routes/tag/tag.model.js.map",
+          "hash": "3627781715194133836"
+        },
+        {
+          "file": "dist/api/src/app/routes/tag/tag.service.js",
+          "hash": "16576072454312662326"
+        },
+        {
+          "file": "dist/api/src/app/routes/tag/tag.service.js.map",
+          "hash": "1288423225068242686"
+        },
+        {
+          "file": "dist/api/src/assets/images/demo-avatar.png",
+          "hash": "10635547064654873089"
+        },
+        {
+          "file": "dist/api/src/assets/images/smiley-cyrus.jpeg",
+          "hash": "1144521799396656283"
+        },
+        {
+          "file": "dist/api/src/main.js",
+          "hash": "5582852934174903899",
+          "deps": [
+            "npm:express",
+            "npm:cors",
+            "npm:body-parser"
+          ]
+        },
+        {
+          "file": "dist/api/src/main.js.map",
+          "hash": "3506117486483280569"
+        },
+        {
+          "file": "dist/api/src/prisma/prisma-client.js",
+          "hash": "8761636737619672191",
+          "deps": [
+            "npm:@prisma/client"
+          ]
+        },
+        {
+          "file": "dist/api/src/prisma/prisma-client.js.map",
+          "hash": "8456663035889008823"
+        },
+        {
+          "file": "dist/api/src/prisma/seed.js",
+          "hash": "17666993343579714288",
+          "deps": [
+            "npm:@ngneat/falso",
+            "npm:@prisma/client"
+          ]
+        },
+        {
+          "file": "dist/api/src/prisma/seed.js.map",
+          "hash": "8606216305033461910"
         },
         {
           "file": "docker-compose,yml",
@@ -436,6 +671,15 @@
           "hash": "4426507261087866474"
         },
         {
+          "file": "tmp/api/main-with-require-overrides.js",
+          "hash": "8143564513521340325",
+          "deps": [
+            "npm:module",
+            "npm:path",
+            "npm:fs"
+          ]
+        },
+        {
           "file": "tsconfig.app.json",
           "hash": "3424608520383813861"
         },
@@ -447,7 +691,52 @@
           "file": "tsconfig.spec.json",
           "hash": "3170436939515323801"
         }
+      ],
+      "e2e": [
+        {
+          "file": "e2e/.eslintrc.json",
+          "hash": "2666771139683478850"
+        },
+        {
+          "file": "e2e/jest.config.ts",
+          "hash": "1456555062157936470"
+        },
+        {
+          "file": "e2e/project.json",
+          "hash": "172393831053734807"
+        },
+        {
+          "file": "e2e/src/server/server.spec.ts",
+          "hash": "3026045886657059088",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "e2e/src/support/global-setup.ts",
+          "hash": "18221119270488052961"
+        },
+        {
+          "file": "e2e/src/support/global-teardown.ts",
+          "hash": "17927034305001160425"
+        },
+        {
+          "file": "e2e/src/support/test-setup.ts",
+          "hash": "4165311015569872896",
+          "deps": [
+            "npm:axios"
+          ]
+        },
+        {
+          "file": "e2e/tsconfig.json",
+          "hash": "3552952790334018146"
+        },
+        {
+          "file": "e2e/tsconfig.spec.json",
+          "hash": "9794114284475474533"
+        }
       ]
-    }
+    },
+    "nonProjectFiles": []
   }
 }
