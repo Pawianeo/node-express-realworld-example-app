@@ -60,12 +60,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/users",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/users",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"users"
@@ -122,12 +120,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/users/login",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/users/login",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"users",
@@ -167,12 +163,10 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3000/api/user",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/user",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"user"
@@ -221,12 +215,10 @@
 					}
 				},
 				"url": {
-					"raw": "http://localhost:3000/api/articles",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/articles",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"articles"
@@ -266,14 +258,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:3000/api/articles/{{slug}}",
-					"protocol": "http",
+					"raw": "{{baseUrl}}api/articles/{{slug}}",
 					"host": [
-						"localhost"
+						"{{baseUrl}}api"
 					],
-					"port": "3000",
 					"path": [
-						"api",
 						"articles",
 						"{{slug}}"
 					]
@@ -310,12 +299,10 @@
 					}
 				],
 				"url": {
-					"raw": "http://localhost:3000/api/articles/{{slug}}",
-					"protocol": "http",
+					"raw": "{{baseUrl}}/api/articles/{{slug}}",
 					"host": [
-						"localhost"
+						"{{baseUrl}}"
 					],
-					"port": "3000",
 					"path": [
 						"api",
 						"articles",
@@ -370,6 +357,11 @@
 		{
 			"key": "random_password",
 			"value": ""
+		},
+		{
+			"key": "baseUrl",
+			"value": "http://host.docker.internal:3000",
+			"type": "string"
 		}
 	]
 }
