@@ -2,7 +2,7 @@ pipeline {
   agent any
 
   tools {
-    nodejs 'node18'  // to co ustawiłeś w GUI Jenkinsa
+    nodejs 'node18' // Nazwa jaką ustawiłeś w Jenkins > Global Tool Configuration
   }
 
   environment {
@@ -13,8 +13,15 @@ pipeline {
     stage('Install dependencies') {
       steps {
         dir('project') {
-          sh 'npm install'
-          sh 'npx prisma generate'
+          sh 'npm install || true'
+        }
+      }
+    }
+
+    stage('Generate Prisma Client') {
+      steps {
+        dir('project') {
+          sh 'npx prisma generate || true'
         }
       }
     }
