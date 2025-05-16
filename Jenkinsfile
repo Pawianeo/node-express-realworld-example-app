@@ -2,20 +2,21 @@ pipeline {
   agent any
 
   tools {
-    nodejs 'node18'
+    nodejs 'node18'  // to co ustawiłeś w GUI Jenkinsa
   }
 
   environment {
-    DATABASE_URL = "postgresql://postgres:postgres@host.docker.internal:5432/postgres"
+    DATABASE_URL = 'postgresql://postgres:postgres@host.docker.internal:5432/postgres'
   }
 
   stages {
     stage('Install dependencies') {
       steps {
-         sh 'npm install || true'          // pozwalamy na błąd przy pierwszym install
-      sh 'chmod -R +x node_modules/esbuild'  // dajemy uprawnienia do esbuild
-      sh 'npm rebuild esbuild'               // odbudowujemy paczkę
-      sh 'npx prisma generate'
+        dir('project') {
+          sh 'npm install || true'
+          sh 'chmod -R +x node_modules/esbuild'
+          sh 'npm rebuild esbuild'
+          sh 'npx prisma generate'
         }
       }
     }
