@@ -14,7 +14,6 @@ pipeline {
       steps {
         dir('project') {
           sh 'npm install'
-          sh 'npm rebuild esbuild || true'
           sh 'npx prisma generate'
         }
       }
