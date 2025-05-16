@@ -14,8 +14,8 @@ tools {
                 dir('project') {
                     sh '''
                         npm install
-                        npx prisma generate
-                        npx prisma migrate deploy
+                        chmod +x ./node_modules/.bin/prisma
+                       ./node_modules/.bin/prisma generate
                     '''
                 }
             }
