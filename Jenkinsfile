@@ -12,9 +12,10 @@ pipeline {
   stages {
     stage('Install dependencies') {
       steps {
-        dir('project') {
-          sh 'npm install'
-          sh 'npx prisma generate'
+         sh 'npm install || true'          // pozwalamy na błąd przy pierwszym install
+      sh 'chmod -R +x node_modules/esbuild'  // dajemy uprawnienia do esbuild
+      sh 'npm rebuild esbuild'               // odbudowujemy paczkę
+      sh 'npx prisma generate'
         }
       }
     }
