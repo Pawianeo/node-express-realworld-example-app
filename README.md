@@ -128,10 +128,20 @@ pipeline {
 
 ## 📷 Screenshots
 
-* Jenkins pipeline passing all stages
-* Docker containers view in Docker Desktop
-* Postman collection + variables
-* API results in browser
+### ✅ Jenkins pipeline (Green build)
+![Jenkins pipeline](docs/screenshots/jenkins-pipeline.png)
+
+### 🐳 Docker containers running
+![Docker containers](docs/screenshots/docker-containers.png)
+
+### 🧪 Postman test variables
+![Postman variables](docs/screenshots/postman-vars.png)
+
+### 📂 Jenkinsfile preview
+![Jenkinsfile](docs/screenshots/jenkinsfile.png)
+
+### 🟢 Prisma Client generation
+![Prisma success](docs/screenshots/prisma-success.png)
 
 (See `/docs/screenshots/` folder or GitHub issue attachments)
 
