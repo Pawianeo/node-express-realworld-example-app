@@ -118,7 +118,7 @@ pipeline {
 
 ## ✅ Sample Newman Test Results
 
-![Newman tests passed](docs/screenshots/newman-success.png)
+![Newman tests passed](docs/screenshots/f6c37a23-8a14-4c96-8480-1ec345f8d1b4.png)
 
 * All Postman tests executed successfully
 * Covered: registration, login, get current user, create + delete article
